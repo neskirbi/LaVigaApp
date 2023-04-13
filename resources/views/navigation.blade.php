@@ -6,29 +6,18 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#home">Home</a>
+                    <a class="nav-link" href="home">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#about">Acerca de</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#gallary">Galería</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#book-table">Menu</a>
-                </li>
+               
             </ul>
             <a class="navbar-brand m-auto" href="#">
-                <img src="assets/imgs/logo.svg" class="brand-img" alt="">
-                <span class="brand-txt">Food Hut</span>
+                <span class="brand-txt">La Viga</span>
             </a>
             <ul class="navbar-nav">
                 
+               
                 <li class="nav-item">
-                    <a class="nav-link" href="#testmonial">Reviews</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact Us</a>
+                    <a class="nav-link" href="#contact">Contactanos</a>
                 </li>
                 
                 <li class="nav-item">
