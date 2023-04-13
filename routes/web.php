@@ -22,3 +22,11 @@ Route::get('/', function () {
 Route::resource('home', 'App\Http\Controllers\Home\HomeController');
 Route::get('components', 'App\Http\Controllers\Home\HomeController@Components');
 Route::get('Plantilla', 'App\Http\Controllers\Home\HomeController@Plantilla');
+
+
+Route::get('registro', 'App\Http\Controllers\Login\LoginController@Registro');
+Route::post('GuardaTienda', 'App\Http\Controllers\Login\LoginController@GuardaTienda');
+
+Route::get('LoginPage', 'App\Http\Controllers\Login\LoginController@LoginPage');
+Route::post('Login', 'App\Http\Controllers\Login\LoginController@Login');
+
