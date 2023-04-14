@@ -30,3 +30,5 @@ Route::post('GuardaTienda', 'App\Http\Controllers\Login\LoginController@GuardaTi
 Route::get('LoginPage', 'App\Http\Controllers\Login\LoginController@LoginPage');
 Route::post('Login', 'App\Http\Controllers\Login\LoginController@Login');
 
+
+Route::resource('tienda', 'App\Http\Controllers\Tienda\TiendaController');
