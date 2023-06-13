@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   @include('header')
+    @include('tienda.header')
     <title>Tiendas</title>
 </head>
 <body>
-    @include('tienda.navigation.navigation')
+    
+
+    @include('tienda.navigation')
+    @include('tienda.sidebar')
     @include('toast.toasts') 
 
     

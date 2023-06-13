@@ -32,3 +32,6 @@ Route::post('Login', 'App\Http\Controllers\Login\LoginController@Login');
 
 
 Route::resource('tienda', 'App\Http\Controllers\Tienda\TiendaController');
+Auth::routes();
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
