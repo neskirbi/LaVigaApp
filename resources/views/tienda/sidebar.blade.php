@@ -1,7 +1,9 @@
 
 <!-- Sidebar -->
 <div class="sidebar" >
-  <span class="sidebar-title">La Viga</span>
+  <div class="sidebar-titlebox">    
+    <font class="sidebar-title">La Viga</font>
+  </div>
   <div class="sidebar-body">
     <span class="sidebar-user">Usuario</span>
     <a href="#" class="sidebar-item"><i class="fa fa-shopping-bag nav-icon" aria-hidden="true"></i> Tiendas</a>

@@ -1,3 +1,70 @@
+$( document ).ready(function(){
+    StarsidbarButton();
+
+});
+$(window).resize(function() {
+     
+    $(".navigation-bar").removeAttr('style');
+    $(".main-content").removeAttr('style');
+  });
+
+
+function StarsidbarButton(){
+    $( ".navigation-button" ).on( "click", function() {
+
+        console.log('ok '+window.screen.availWidth);
+        //$(".sidebar").animate({left: '250px'});
+
+
+        FuncionVentana();
+
+        if($(this).hasClass('activated')){
+            
+            $(this).removeClass('activated');
+            
+        }else{
+            
+            $(this).addClass('activated');
+            
+        }
+        
+
+       
+       
+    } );
+}
+
+function FuncionVentana(){
+    
+    
+
+    if($( ".navigation-button" ).hasClass('activated')){
+            
+        $(".sidebar").animate({left: '-250px'},function(){
+            $(".sidebar").hide();
+           
+        });
+
+        
+    }else{
+                  
+
+        $(".sidebar").show();
+        $(".sidebar").animate({left: '0px'},function(){
+            
+        });
+
+      
+
+    }
+
+    
+    $(".navigation-bar").removeAttr('style');
+    $(".main-content").removeAttr('style');
+    
+}
+
+
 function EscalaVerdes(){
     return ['#7AFE76','#6FF171','#65DA65','#59C359','#50AF52','#489C47','#338D33','#2C7D2E','#2A6F2C','#43F59D','#3FE795','#39CD84'];
 }
