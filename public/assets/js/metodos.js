@@ -2,11 +2,7 @@ $( document ).ready(function(){
     StarsidbarButton();
 
 });
-$(window).resize(function() {
-     
-    $(".navigation-bar").removeAttr('style');
-    $(".main-content").removeAttr('style');
-  });
+
 
 
 function StarsidbarButton(){
