@@ -9,6 +9,8 @@
     <a href="#" class="sidebar-item"><i class="fa fa-shopping-bag nav-icon" aria-hidden="true"></i> Tiendas</a>
     <a href="#" class="sidebar-item">Link 2</a>
     <a href="#" class="sidebar-item">Link 3</a>
+    
+    <a href="{{url('logout')}}" class="sidebar-item"><i class="fa fa-sign-out" aria-hidden="true"></i> Salir</a>
   </div>
   
  

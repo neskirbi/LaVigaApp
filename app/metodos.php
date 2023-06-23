@@ -11,6 +11,12 @@ function GetUuid(){
     return str_replace("-","",vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4)));
 }
 
+function GetId(){
+    if(Auth::guard('users')->check()){
+        return Auth::guard('users')->user()->id;
+    } 
+}
+
 
 function GetTitle(){
     return 'LaVigaApp';

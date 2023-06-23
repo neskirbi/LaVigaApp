@@ -59,19 +59,31 @@ class LoginController extends Controller
 
     function Login(Request $request){
 
-        $tienda = Tienda::where([
+        $usuario = Usuario::where([
             'mail' => $request->mail
         ])->first();
 
-        if($tienda){
-            if($request->pass!=$tienda->pass){
+        if($usuario){
+            if($request->pass!=$usuario->pass){
                 return redirect('LoginPage')->with('error', '¡Error de contraseña!');
             }
-            Auth::guard('tiendas')->login($tienda);
+            Auth::guard('usuarios')->login($usuario);
             return redirect('home');
         }
         
 
         return redirect('LoginPage')->with('error', '¡Correo no registrado!');
+    }
+
+    function Logout(){
+
+      
+        if( Auth::guard('usuarios')->check()){
+            Auth::guard('usuarios')->logout();
+            return redirect('usuarios');
+        }
+
+        return redirect('home');
+
     }
 }
