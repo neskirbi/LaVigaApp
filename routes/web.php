@@ -25,14 +25,19 @@ Route::get('Plantilla', 'App\Http\Controllers\Home\HomeController@Plantilla');
 
 
 Route::get('registro', 'App\Http\Controllers\Login\LoginController@Registro');
-Route::post('GuardaTienda', 'App\Http\Controllers\Login\LoginController@GuardaTienda');
+Route::post('GuardaUsuario', 'App\Http\Controllers\Login\LoginController@GuardaUsuario');
 
 Route::get('LoginPage', 'App\Http\Controllers\Login\LoginController@LoginPage');
 Route::post('Login', 'App\Http\Controllers\Login\LoginController@Login');
 Route::get('logout', 'App\Http\Controllers\Login\LoginController@Logout');
 
 
-Route::resource('tienda', 'App\Http\Controllers\Tienda\TiendaController');
-Auth::routes();
+/**
+ * Direcciones Usuario
+ */
+
+ Route::resource('tiendas', 'App\Http\Controllers\Usuario\TiendaController');
+
+
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

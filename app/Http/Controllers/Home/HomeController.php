@@ -15,8 +15,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(Auth::guard('tiendas')->check()){
-            return redirect('tienda');
+        if(Auth::guard('usuarios')->check()){
+            return redirect('tiendas');
         } 
         return view('home.home');
     }

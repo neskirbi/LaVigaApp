@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Tienda;
 
+use App\Models\Usuario;
+
 class LoginController extends Controller
 {
     /**
@@ -20,7 +22,7 @@ class LoginController extends Controller
     }
 
    
-    public function GuardaTienda(Request $request)
+    public function GuardaUsuario(Request $request)
     {
 
         if($request->pass!=$request->pass2){
@@ -33,18 +35,17 @@ class LoginController extends Controller
             return redirect('registro')->with('error','El correo ya se registró anteriormente, por favor igrese uno nuevo.');
         }
 
-        $tienda=new Tienda();
+        $usuario=new Usuario();
 
-        $tienda->id=GetUuid();
-        $tienda->tienda=$request->tienda;
-        $tienda->nombres=$request->nombres;
-        $tienda->apellidos=$request->apellidos;
+        $usuario->id=GetUuid();
+        $usuario->nombres=$request->nombres;
+        $usuario->apellidos=$request->apellidos;
         
-        $tienda->telefono=$request->telefono;
-        $tienda->mail=$request->mail;
-        $tienda->pass=$request->pass;
+        $usuario->telefono=$request->telefono;
+        $usuario->mail=$request->mail;
+        $usuario->pass=$request->pass;
 
-        $tienda->save();
+        $usuario->save();
 
         return redirect('home')->with('success','Registro Guardado.');
     }
@@ -80,7 +81,7 @@ class LoginController extends Controller
       
         if( Auth::guard('usuarios')->check()){
             Auth::guard('usuarios')->logout();
-            return redirect('usuarios');
+            //return redirect('home');
         }
 
         return redirect('home');

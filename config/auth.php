@@ -45,6 +45,11 @@ return [
             'driver' => 'session',
             'provider' => 'tiendas',
         ],
+
+        'usuarios' => [
+            'driver' => 'session',
+            'provider' => 'usuarios',
+        ],
     ],
 
     /*
@@ -73,6 +78,11 @@ return [
         'tiendas' => [
             'driver' => 'eloquent',
             'model' => App\Models\Tienda::class,
+        ],
+
+        'usuarios' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Usuario::class,
         ],
 
         // 'users' => [

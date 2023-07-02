@@ -25,11 +25,8 @@
             </div>
             <div class="col-md-6">
                 <h3 class="section-secondary-title">Registro</h3> 
-                <form action="{{url('GuardaTienda')}}" method="post">
-                    @csrf
-                    <div class="form-group">                    
-                        <input required type="text" name="tienda" class="form-control" id="tienda" placeholder="Nombre de la Tienda">
-                    </div>       
+                <form action="{{url('GuardaUsuario')}}" method="post">
+                    @csrf   
                     <div class="form-group">                    
                         <input required type="text" name="nombres" class="form-control" id="nombres" placeholder="Nombres">
                     </div>       
