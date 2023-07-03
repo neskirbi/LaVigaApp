@@ -18,6 +18,13 @@ function GetId(){
 }
 
 
+function GetNombre(){
+    if(Auth::guard('usuarios')->check()){
+        return Auth::guard('usuarios')->user()->nombres;
+    } 
+}
+
+
 function GetTitle(){
     return 'LaVigaApp';
 }

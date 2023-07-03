@@ -37,6 +37,10 @@ Route::get('logout', 'App\Http\Controllers\Login\LoginController@Logout');
  */
 
  Route::resource('tiendas', 'App\Http\Controllers\Usuario\TiendaController');
+ Route::post('EliminarTienda/{id}', 'App\Http\Controllers\Usuario\TiendaController@EliminarTienda');
+
+ Route::resource('productos', 'App\Http\Controllers\Usuario\ProductoController');
+ Route::post('EliminarProducto/{id}', 'App\Http\Controllers\Usuario\ProductoController@EliminarProducto');
 
 
 

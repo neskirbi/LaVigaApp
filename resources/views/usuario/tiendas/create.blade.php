@@ -29,7 +29,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="tienda">Nombre de la tienda</label>
-                                        <input required type="text" class="form-control" id="tienda" name="tienda" placeholder="Enter email">
+                                        <input required type="text" class="form-control" id="tienda" name="tienda" placeholder="Tienda">
                                     </div>
 
                                 </div>
@@ -57,7 +57,6 @@
                             </div>
 
                             
-                        </div>
                         </div>
                         <div class="card-footer">
                             <div class="row">

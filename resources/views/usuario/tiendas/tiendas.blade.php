@@ -49,7 +49,13 @@
                                             <td>{{$tienda->contacto}}</td>
                                             <td>{{$tienda->telefono}}</td>
                                             <td><a href="{{url('tiendas/'.$tienda->id)}}" class="btn btn-info"><i class="fa fa-pencil" aria-hidden="true"></i> Editar</a></td>
-                                            <td><button class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Eliminar</button></td>
+                                            <td>                                                
+                                                <form action="{{url('tiendas/'.$tienda->id)}}" method="post" >
+                                                @csrf
+                                                @method('DELETE')
+                                                    <button class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Eliminar</button>
+                                                </form>
+                                            </td>
                                         </tr>
                                        
                                     @endforeach
@@ -58,8 +64,8 @@
                                 </table>
 
                             </div>
-                        </div>
-                        
+                        </div> 
+                    </div>                        
                    
                 </div>
             </div>

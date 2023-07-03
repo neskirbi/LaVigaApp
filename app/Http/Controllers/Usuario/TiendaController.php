@@ -7,8 +7,13 @@ use Illuminate\Http\Request;
 use App\Models\Tienda;
 use Redirect;
 
+
 class TiendaController extends Controller
 {
+    public function __construct(){
+        $this->middleware('usuarioislogged');
+    }
+
     function index(){
 
         $tiendas=Tienda::where('id_usuario',GetId())->get();
@@ -52,5 +57,21 @@ class TiendaController extends Controller
         }else{
             return Redirect::back()->with('error', '¡Error de actualización!');
         }
+    }
+
+    function destroy($id){
+        $tienda = Tienda::find($id);
+        return view('usuario.tiendas.destroy',['tienda'=>$tienda]);
+    }
+
+    function EliminarTienda($id){
+        $tienda = Tienda::find($id);
+        
+        if($tienda->delete()){
+            return redirect('tiendas')->with('success', '¡Registro borrado!');
+        }else{
+            return redirect('tiendas')->with('error', '¡Error al borrar!');
+        }
+
     }
 }

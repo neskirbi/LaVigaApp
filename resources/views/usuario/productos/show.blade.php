@@ -18,47 +18,43 @@
     <div class="main-content">
         <div class="row">
             <div class="col-md-12">
-                <form action="{{url('tiendas/'.$tienda->id)}}" method="post">
+                <form action="{{url('productos/'.$producto->id)}}" method="post">
                 @csrf
                 @method('PUT')
                     <div class="card">
+                        <h5 class="card-header"><i class="fa fa-home" aria-hidden="true"></i> Editando Producto</h5>
                         
-                        <h5 class="card-header"><i class="fa fa-home" aria-hidden="true"></i> Nueva Tiendas</h5>
                         <div class="card-body">
                         
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="tienda">Nombre de la tienda</label>
-                                        <input required type="text" class="form-control" id="tienda" name="tienda" placeholder="Enter email" value="{{$tienda->tienda}}">
+                                        <label for="categoria">Categoría</label>
+                                        <input required type="text" class="form-control" id="categoria" name="categoria" placeholder="Categoría" value="{{$producto->categoria}}">
                                     </div>
 
                                 </div>
                             </div>
 
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="contacto">Contacto</label>
-                                        <input required type="text" class="form-control" id="contacto" name="contacto" placeholder="Contacto" value="{{$tienda->contacto}}">
+                                        <label for="producto">Producto</label>
+                                        <input required type="text" class="form-control" id="producto" name="producto" placeholder="Producto" value="{{$producto->producto}}">
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="telefono">Teléfono</label>
-                                        <input required type="text" class="form-control" id="telefono" name="telefono" placeholder="Teléfono" value="{{$tienda->telefono}}">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="correo">Correo</label>
-                                        <input required type="mail" class="form-control" id="correo" name="correo" placeholder="Correo" value="{{$tienda->correo}}">
+                                        <label for="descripcion">Descripción</label>
+                                        <textarea required class="form-control" name="descripcion" id="descripcion" placeholder="Descripción">{{$producto->descripcion}}</textarea>
                                     </div>
                                 </div>
                             </div>
 
                             
-                        </div>
                         </div>
                         <div class="card-footer">
                             <div class="row">
