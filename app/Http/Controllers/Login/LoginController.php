@@ -28,10 +28,10 @@ class LoginController extends Controller
         if($request->pass!=$request->pass2){
             return redirect('registro')->with('error','Las contraseñas no coinciden.');
         }
-        if(Tienda::where('telefono',$request->telefono)->first()){
+        if(Usuario::where('telefono',$request->telefono)->first()){
             return redirect('registro')->with('error','El teléfono ya se registró anteriormente, por favor igrese uno nuevo.');
         }
-        if(Tienda::where('mail',$request->mail)->first()){
+        if(Usuario::where('mail',$request->mail)->first()){
             return redirect('registro')->with('error','El correo ya se registró anteriormente, por favor igrese uno nuevo.');
         }
 

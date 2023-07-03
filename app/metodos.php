@@ -12,8 +12,8 @@ function GetUuid(){
 }
 
 function GetId(){
-    if(Auth::guard('users')->check()){
-        return Auth::guard('users')->user()->id;
+    if(Auth::guard('usuarios')->check()){
+        return Auth::guard('usuarios')->user()->id;
     } 
 }
 

@@ -19,18 +19,18 @@
 <script src="{{ asset('js/metodos.js') }}?version={{Version()}}"></script>
 
 <!-- font icons -->
-<link rel="stylesheet" href="{{asset('assets/vendors/themify-icons/css/themify-icons.css')}}">
+<link rel="stylesheet" href="{{asset('assets/vendors/themify-icons/css/themify-icons.css')}}?version={{Version()}}">
 
-<link rel="stylesheet" href="{{asset('assets/vendors/animate/animate.css')}}">
+<link rel="stylesheet" href="{{asset('assets/vendors/animate/animate.css')}}?version={{Version()}}">
 
 <!-- Bootstrap + FoodHut main styles -->
-<link rel="stylesheet" href="{{asset('assets/css/foodhut.css')}}">
+<link rel="stylesheet" href="{{asset('assets/css/foodhut.css')}}?version={{Version()}}">
 
 
 <!-- Toastr -->
-<link rel="stylesheet" href="{{ asset('plugins/toastr/toastr.min.css') }}">
+<link rel="stylesheet" href="{{ asset('plugins/toastr/toastr.min.css') }}?version={{Version()}}">
 
 <!-- Toastr -->
-<script src="{{ asset('plugins/toastr/toastr.min.js') }}"></script>
+<script src="{{ asset('plugins/toastr/toastr.min.js') }}?version={{Version()}}"></script>
 
 
