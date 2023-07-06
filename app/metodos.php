@@ -17,11 +17,21 @@ function GetId(){
     } 
 }
 
+function GetIdUsuario(){
+    if(Auth::guard('tiendas')->check()){
+        return Auth::guard('tiendas')->user()->id_usuario;
+    } 
+}
+
 
 function GetNombre(){
     if(Auth::guard('usuarios')->check()){
         return Auth::guard('usuarios')->user()->nombres;
     } 
+
+    if(Auth::guard('tiendas')->check()){
+        return Auth::guard('tiendas')->user()->tienda;
+    }
 }
 
 

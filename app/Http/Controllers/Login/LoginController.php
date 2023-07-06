@@ -87,4 +87,18 @@ class LoginController extends Controller
         return redirect('home');
 
     }
+
+    function LoginPageCliente(){
+        return view('login.logincliente');
+    }
+
+    function LoginCliente(Request $request){
+        $tienda=Tienda::where('telefono',$request->telefono)->first();
+        if($tienda){
+            Auth::guard('tiendas')->login($tienda);
+            
+            return redirect('productos')->with('success','Bienvenido.');
+        }
+        return redirect('LoginPageCliente')->with('error','El teléfono no esta registrado.');
+    }
 }

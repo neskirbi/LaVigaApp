@@ -29,6 +29,11 @@ Route::post('GuardaUsuario', 'App\Http\Controllers\Login\LoginController@GuardaU
 
 Route::get('LoginPage', 'App\Http\Controllers\Login\LoginController@LoginPage');
 Route::post('Login', 'App\Http\Controllers\Login\LoginController@Login');
+
+
+Route::get('LoginPageCliente', 'App\Http\Controllers\Login\LoginController@LoginPageCliente');
+Route::post('LoginCliente', 'App\Http\Controllers\Login\LoginController@LoginCliente');
+
 Route::get('logout', 'App\Http\Controllers\Login\LoginController@Logout');
 
 
@@ -45,3 +50,13 @@ Route::get('logout', 'App\Http\Controllers\Login\LoginController@Logout');
 
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+/**
+ * 
+ * Rutas clientes
+ */
+
+
+ Route::get('productos', 'App\Http\Controllers\Cliente\ProductoController@Productos');

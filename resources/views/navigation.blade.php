@@ -21,6 +21,10 @@
                 </li>
                 
                 <li class="nav-item">
+                    <a class="nav-link" href="{{url('LoginPageCliente')}}">Clientes</a>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link" href="{{url('LoginPage')}}">Ingresar</a>
                 </li>
 
