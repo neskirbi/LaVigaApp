@@ -8,9 +8,6 @@ $( document ).ready(function(){
 function StarsidbarButton(){
     $( ".navigation-button" ).on( "click", function() {
 
-        console.log('ok '+window.screen.availWidth);
-        //$(".sidebar").animate({left: '250px'});
-
 
         FuncionVentana();
 
@@ -28,6 +25,16 @@ function StarsidbarButton(){
        
        
     } );
+
+
+    $( ".sidebar-dummie" ).on( "click", function() {
+
+      
+        $( ".navigation-button" ).click();
+
+       
+       
+    } );
 }
 
 function FuncionVentana(){
@@ -39,6 +46,9 @@ function FuncionVentana(){
         $(".sidebar").animate({left: '-250px'},function(){
             $(".sidebar").hide();
            
+            
+            $('.sidebar-dummie').hide();
+           
         });
 
         
@@ -47,6 +57,7 @@ function FuncionVentana(){
 
         $(".sidebar").show();
         $(".sidebar").animate({left: '0px'},function(){
+            $('.sidebar-dummie').show();
             
         });
 

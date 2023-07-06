@@ -100,6 +100,20 @@ body{
     
 }
 
+
+.sidebar-dummie{
+    width: calc(100% - 250px);
+    height: 100vh;
+    background-color:#343a4065 ;
+    display: none;
+
+
+    position: absolute;
+    left: 250px;
+    
+    z-index: 20000;
+}
+
 .os-scrollbar-handle {
     pointer-events: auto;
     position: absolute;
