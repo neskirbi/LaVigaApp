@@ -5,11 +5,31 @@ body{
 
 
 .navigation-bar{
+    background-color: #fff;
     border-bottom: 1px solid #adacac;
-    width: 100;
+    width: 100%;
     height: 50px;
-    position: absolute;
+    position: fixed;
+    z-index: 3000;
 }
+
+
+.navigation-options{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); 
+    right: 20px;
+}
+
+.navigation-option{
+    color: #7F7F7F;
+    font-size: 20px;
+    display: inline-block;
+    padding-left: 10px;
+   
+}
+
+
 
 .navigation-button{
     border: 0px solid #9a9a9a;
@@ -33,9 +53,9 @@ body{
 
 
     display: none;
-        position: absolute;
-        left: -250px;
-        z-index: 1000;
+    position: fixed;
+    left: -250px;
+    z-index: 1000;
 }
 
 .sidebar-titlebox{
@@ -106,9 +126,7 @@ body{
     height: 100vh;
     background-color:#343a4065 ;
     display: none;
-
-
-    position: absolute;
+    position: fixed;
     left: 250px;
     
     z-index: 20000;
@@ -164,3 +182,68 @@ body{
 
     
 }
+
+.cat{
+    border: 0px #000 solid;
+    height: 52px;
+    width: 150px;
+    display:inline-block;
+    cursor: pointer;
+}
+
+
+.cat:hover{
+    background-color: #5898ff85;
+}
+
+
+.cat-image{
+    border: 0px #000 solid;
+    width: 50px;
+    display:table-cell;
+    height: 50px;
+}
+
+.cat-title{
+    border: 0px #000 solid;
+    display:table-cell;
+    height: 50px;
+    padding-left: 10px;
+    vertical-align: middle;
+}
+
+
+.producto-title{
+    font-weight: 900;
+    font-size: 25px;
+    color: #3D3935;
+    font-family: Oswald,Arial Narrow,sans-serif;
+    height: 60px;  
+    line-height:25px;  
+}
+
+
+.prducto-descripcion{
+    font-weight: 20;    
+    font-size: 15px;
+    font-family: Oswald,Arial Narrow,sans-serif;
+    height: 40px;    
+    line-height:15px;  
+}
+
+
+.Producto-precio{
+    font-weight: 450;
+    font-size: 25px;
+    color: #3D3935;
+    font-family: Oswald,Arial Narrow,sans-serif;
+
+}
+
+
+.barra{
+    background: #3D3935;
+    height: 20px;
+
+}
+

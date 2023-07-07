@@ -27,7 +27,7 @@
                     <div class="card-body" style="overflow-x:scroll;">
                         <div class="row">
                             <div class="col-md-12">
-                                <a href="{{url('productos/create')}}" class="btn btn-info"><i class="fa fa-plus" aria-hidden="true"></i> Producto</a>
+                                <a href="{{url('productosv/create')}}" class="btn btn-info"><i class="fa fa-plus" aria-hidden="true"></i> Producto</a>
                             </div>
                         </div>
                         <br>
@@ -48,9 +48,9 @@
                                             <td>{{$producto->categoria}}</td>
                                             <td>{{$producto->producto}}</td>
                                             <td>{{$producto->descripcion}}</td>
-                                            <td><a href="{{url('productos/'.$producto->id)}}" class="btn btn-info"><i class="fa fa-pencil" aria-hidden="true"></i> Editar</a></td>
+                                            <td><a href="{{url('productosv/'.$producto->id)}}" class="btn btn-info"><i class="fa fa-pencil" aria-hidden="true"></i> Editar</a></td>
                                             <td>                                                
-                                                <form action="{{url('productos/'.$producto->id)}}" method="post" >
+                                                <form action="{{url('productosv/'.$producto->id)}}" method="post" >
                                                 @csrf
                                                 @method('DELETE')
                                                     <button class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Eliminar</button>

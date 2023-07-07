@@ -28,17 +28,24 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="categoria">Categoría</label>
-                                    <input required type="text" class="form-control" id="categoria" name="categoria" placeholder="Categoría" value="{{$producto->categoria}}">
+                                    <input required type="text" class="form-control" id="categoria" name="categoria" placeholder="Categoría" value="{{$categoria->categoria}}">
                                 </div>
 
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-9">
                                 <div class="form-group">
                                     <label for="producto">Producto</label>
                                     <input required type="text" class="form-control" id="producto" name="producto" placeholder="Producto" value="{{$producto->producto}}">
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="precio">Precio</label>
+                                    <input required type="number" class="form-control" id="precio" name="precio" placeholder="Precio" min="0" step="0.01" value="{{$producto->precio}}">
                                 </div>
                             </div>
                         </div>
@@ -74,7 +81,7 @@
                             </div>
 
                             <div class="col-md-2">
-                                <a href="{{url('productos')}}" class="btn btn-info btn-block">Cancelar</a>
+                                <a href="{{url('productosv')}}" class="btn btn-info btn-block">Cancelar</a>
                             </div>
 
                             <div class="col-md-2">

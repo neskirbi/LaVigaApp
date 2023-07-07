@@ -84,6 +84,10 @@ class LoginController extends Controller
             //return redirect('home');
         }
 
+        if(Auth::guard('tiendas')->check()){
+            Auth::guard('tiendas')->logout();
+        } 
+
         return redirect('home');
 
     }

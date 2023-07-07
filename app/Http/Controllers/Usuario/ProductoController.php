@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Usuario;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Models\Categoria;
 use App\Models\Producto;
+
 use Redirect;
 
 
@@ -16,13 +19,15 @@ class ProductoController extends Controller
 
     function index(Request $request){
 
-        $productos=Producto::where('id_usuario',GetId())->get();
+        $productos=Producto::select('id',DB::RAW('(select categoria from categorias where id=productos.id_categoria) as categoria'),'producto','descripcion','precio')->where('id_usuario',GetId())->get();
+       
        
         return view('usuario.productos.productos',['productos'=>$productos]);
     }
 
     function create(){
-        return view('usuario.productos.create');
+        $categorias=Categoria::all();
+        return view('usuario.productos.create',['categorias'=>$categorias]);
     }
 
     function store(Request $request){
@@ -30,12 +35,13 @@ class ProductoController extends Controller
 
         $producto->id = GetUuid();
         $producto->id_usuario = GetId();
-        $producto->categoria = $request->categoria;
+        $producto->id_categoria = $request->categoria;
         $producto->producto = $request->producto;
+        $producto->precio = $request->precio;
         $producto->descripcion = $request->descripcion;
 
         if($producto->save()){
-            return redirect('productos')->with('success', '¡Registro correcto!');
+            return redirect('productosv')->with('success', '¡Registro correcto!');
         }else{
             return Redirect::back()->with('error', '¡Error de registro!');
         }
@@ -44,14 +50,17 @@ class ProductoController extends Controller
 
     function show($id){
         $producto = Producto::find($id);
-        return view('usuario.productos.show',['producto'=>$producto]);
+        $categorias=Categoria::all();
+        $categoria=Categoria::where('id',$producto->id_categoria)->first();
+        return view('usuario.productos.show',['producto'=>$producto,'categorias'=>$categorias,'categoria'=>$categoria]);
     }
 
     function update(Request $request,$id){
         $producto = Producto::find($id);
 
-        $producto->categoria = $request->categoria;
+        $producto->id_categoria = $request->categoria;
         $producto->producto = $request->producto;
+        $producto->precio = $request->precio;
         $producto->descripcion = $request->descripcion;
 
         if($producto->save()){
@@ -64,16 +73,18 @@ class ProductoController extends Controller
 
     function destroy($id){
         $producto = Producto::find($id);
-        return view('usuario.productos.destroy',['producto'=>$producto]);
+        
+        $categoria=Categoria::where('id',$producto->id_categoria)->first();
+        return view('usuario.productos.destroy',['producto'=>$producto,'categoria'=>$categoria]);
     }
 
     function EliminarProducto($id){
         $producto = Producto::find($id);
         
         if($producto->delete()){
-            return redirect('productos')->with('success', '¡Registro borrado!');
+            return redirect('productosv')->with('success', '¡Registro borrado!');
         }else{
-            return redirect('productos')->with('error', '¡Error al borrar!');
+            return redirect('productosv')->with('error', '¡Error al borrar!');
         }
 
     }

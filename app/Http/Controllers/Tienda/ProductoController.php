@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Cliente;
+namespace App\Http\Controllers\Tienda;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -12,6 +12,6 @@ class ProductoController extends Controller
 {
     function Productos(Request $request){
         $productos=Producto::where('id_usuario',GetIdUsuario())->get();
-        return view('cliente.productos.productos');
+        return view('tienda.productos.productos',['productos'=>$productos]);
     }
 }

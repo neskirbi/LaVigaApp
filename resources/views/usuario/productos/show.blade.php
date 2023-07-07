@@ -18,7 +18,7 @@
     <div class="main-content">
         <div class="row">
             <div class="col-md-12">
-                <form action="{{url('productos/'.$producto->id)}}" method="post">
+                <form action="{{url('productosv/'.$producto->id)}}" method="post">
                 @csrf
                 @method('PUT')
                     <div class="card">
@@ -30,17 +30,30 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="categoria">Categoría</label>
-                                        <input required type="text" class="form-control" id="categoria" name="categoria" placeholder="Categoría" value="{{$producto->categoria}}">
+                                        <select required type="text" class="form-control" id="categoria" name="categoria">
+                                            <option value="{{$categoria->id}}">{{$categoria->categoria}}</option>
+                                            <optgroup></optgroup>
+                                            @foreach($categorias as $categoria)
+                                            <option value="{{$categoria->id}}">{{$categoria->categoria}}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
 
                                 </div>
                             </div>
 
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-9">
                                     <div class="form-group">
                                         <label for="producto">Producto</label>
-                                        <input required type="text" class="form-control" id="producto" name="producto" placeholder="Producto" value="{{$producto->producto}}">
+                                        <input required type="text" class="form-control" id="producto" name="producto" placeholder="Producto" value="{{$producto->producto}}"  maxlength="31">
+                                    </div>
+                                </div>
+                            
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="precio">Precio</label>
+                                        <input required type="number" class="form-control" id="precio" name="precio" placeholder="Precio" min="0" step="0.01" value="{{$producto->precio}}" >
                                     </div>
                                 </div>
                             </div>
@@ -49,7 +62,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="descripcion">Descripción</label>
-                                        <textarea required class="form-control" name="descripcion" id="descripcion" placeholder="Descripción">{{$producto->descripcion}}</textarea>
+                                        <textarea required class="form-control" name="descripcion" id="descripcion" placeholder="Descripción"  maxlength="150">{{$producto->descripcion}}</textarea>
                                     </div>
                                 </div>
                             </div>

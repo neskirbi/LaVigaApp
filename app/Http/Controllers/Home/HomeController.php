@@ -18,6 +18,12 @@ class HomeController extends Controller
         if(Auth::guard('usuarios')->check()){
             return redirect('tiendas');
         } 
+
+        if(Auth::guard('tiendas')->check()){
+            return redirect('productos');
+        } 
+
+
         return view('home.home');
     }
 
