@@ -41,4 +41,23 @@ function GetTitle(){
 function NoEspacios(){
     //Si dejas espacios abajo o pones html fuera de las funciones, puedes causar errores
 }
+
+
+function GuardarArchivos($file,$ruta,$nombre){
+
+
+    $ruta=public_path().$ruta;
+    if(!is_dir($ruta))
+        mkdir($ruta, 0777,true);
+
+    if(file_exists($ruta.'/'.$nombre))             
+        unlink($ruta.'/'.$nombre);
+
+    if($file->move($ruta, $nombre)){
+        return true;
+    }else{
+        return false;
+    }
+
+}
 ?>

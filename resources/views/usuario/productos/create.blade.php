@@ -18,12 +18,25 @@
     <div class="main-content">
         <div class="row">
             <div class="col-md-12">
-                <form action="{{url('productosv')}}" method="post">
+                <form action="{{url('productosv')}}" method="post" enctype="multipart/form-data">
                 @csrf
                     <div class="card">
                         <h5 class="card-header"><i class="fa fa-home" aria-hidden="true"></i> Nuevo Producto</h5>
                         
                         <div class="card-body">
+
+
+                        
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="foto">Foto</label>
+                                        <input required type="file" class="form-control" id="foto" name="foto">
+                                    </div>
+                                </div>
+                              
+                            </div>
                         
                             <div class="row">
                                 <div class="col-md-6">

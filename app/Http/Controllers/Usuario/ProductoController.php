@@ -19,7 +19,11 @@ class ProductoController extends Controller
 
     function index(Request $request){
 
-        $productos=Producto::select('id',DB::RAW('(select categoria from categorias where id=productos.id_categoria) as categoria'),'producto','descripcion','precio')->where('id_usuario',GetId())->get();
+        $productos=Producto::select('id',
+        DB::RAW('(select categoria from categorias where id=productos.id_categoria) as categoria'),'producto'
+        ,'descripcion','precio')->where('id_usuario',GetId())
+        ->orderby('producto','asc')
+        ->get();
        
        
         return view('usuario.productos.productos',['productos'=>$productos]);
@@ -31,6 +35,8 @@ class ProductoController extends Controller
     }
 
     function store(Request $request){
+        
+        //return $request;
         $producto = new Producto();
 
         $producto->id = GetUuid();
@@ -39,6 +45,10 @@ class ProductoController extends Controller
         $producto->producto = $request->producto;
         $producto->precio = $request->precio;
         $producto->descripcion = $request->descripcion;
+
+        if(!GuardarArchivos($request->foto,'/assets/images/fotos/',$producto->id.'.jpg')){
+            return Redirect::back()->with('error', '¡Error al cargar la foto!');
+        }
 
         if($producto->save()){
             return redirect('productosv')->with('success', '¡Registro correcto!');
@@ -62,6 +72,12 @@ class ProductoController extends Controller
         $producto->producto = $request->producto;
         $producto->precio = $request->precio;
         $producto->descripcion = $request->descripcion;
+
+        if(isset($request->foto)){
+            if(!GuardarArchivos($request->foto,'/assets/images/fotos/',$producto->id.'.jpg')){
+                return Redirect::back()->with('error', '¡Error al cargar la foto!');
+            }
+        }
 
         if($producto->save()){
             return Redirect::back()->with('success', '¡Registro correcto!');
