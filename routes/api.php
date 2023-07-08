@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::post('AddToCart', 'App\Http\Controllers\Tienda\ApiController@AddToCart');
+
+
+Route::post('SolicitarCodigo', 'App\Http\Controllers\Tienda\ApiController@SolicitarCodigo');

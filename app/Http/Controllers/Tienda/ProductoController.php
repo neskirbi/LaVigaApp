@@ -12,7 +12,7 @@ use App\Models\Producto;
 class ProductoController extends Controller
 {
     function Productos(Request $request){
-        //$productos=Producto::where('id_usuario',GetIdUsuario())->get();
+
         $productos=Producto::select('id',
         DB::RAW('(select categoria from categorias where id=productos.id_categoria) as categoria'),
         'producto','descripcion','precio')

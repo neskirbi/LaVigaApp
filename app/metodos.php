@@ -1,7 +1,9 @@
 <?php
 
+use App\Models\Carrito;
+
 function Version(){
-    return 1;
+    return 2;
 }
 
 function GetUuid(){
@@ -15,9 +17,15 @@ function GetId(){
     if(Auth::guard('usuarios')->check()){
         return Auth::guard('usuarios')->user()->id;
     } 
+
+
+    if(Auth::guard('tiendas')->check()){
+        return Auth::guard('tiendas')->user()->id;
+    } 
 }
 
 function GetIdUsuario(){
+    
     if(Auth::guard('tiendas')->check()){
         return Auth::guard('tiendas')->user()->id_usuario;
     } 
@@ -34,12 +42,23 @@ function GetNombre(){
     }
 }
 
+function GetToken(){
+    if(Auth::guard('tiendas')->check()){
+        return Auth::guard('tiendas')->user()->token;
+    }
+}
+
 
 function GetTitle(){
     return 'LaVigaApp';
 }
 function NoEspacios(){
     //Si dejas espacios abajo o pones html fuera de las funciones, puedes causar errores
+}
+
+
+function GetCarritoCount(){
+    return Carrito::where('id_tienda',GetId())->count();
 }
 
 

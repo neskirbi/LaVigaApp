@@ -20,6 +20,7 @@ class CreateTiendas extends Migration
             $table->string('contacto',150);         
             $table->string('telefono',50);
             $table->string('correo',150);
+            $table->string('token',250)->default('');
             $table->integer('tipo')->default(0);
 
             $table->timestamps();

@@ -11,7 +11,15 @@
             
         </div>
         <div class="navigation-option">
-            <i class="fa fa-shopping-cart" aria-hidden="true"></i> <h6 class="float-right"><small class="badge badge-danger"> <span class="can-carrito">1</span> </small></h6>
+            <a href="{{url('carrito')}}" >
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i> 
+                @if(GetCarritoCount()==0)
+                <h6 class="float-right cont-carrito" style="display:none;"><small class="badge badge-danger"> <span class="can-carrito"></span> </small></h6>
+                @else
+                <h6 class="float-right cont-carrito"><small class="badge badge-danger"> <span class="can-carrito">{{GetCarritoCount()}}</span> </small></h6>
+                @endif
+            </a>
+            
         </div>
     </div>
 </div>

@@ -60,3 +60,7 @@ Route::get('logout', 'App\Http\Controllers\Login\LoginController@Logout');
 
 
  Route::get('productos', 'App\Http\Controllers\Tienda\ProductoController@Productos');
+
+ 
+
+ Route::resource('carrito', 'App\Http\Controllers\Tienda\CarritoController');

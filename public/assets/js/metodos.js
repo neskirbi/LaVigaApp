@@ -1,7 +1,17 @@
 $( document ).ready(function(){
     StarsidbarButton();
 
+   
 });
+
+
+function Url(){
+    if(window.location.origin.includes('localhost') || window.location.origin.includes('192.168')){
+        return window.location.origin+'/LaVigaApp/public/';
+    }else{
+       return window.location.origin+'/';
+    }
+}
 
 
 
@@ -35,6 +45,41 @@ function StarsidbarButton(){
        
        
     } );
+}
+
+
+function AddToCart(id_producto,producto,token){
+    var cantidad=($('#cantidad-'+id_producto).val()*1);
+    if(cantidad==0){
+        alert('Tiene que poner una cantidad al producto.');
+        return ;
+    }
+
+    if(confirm('Desea agregar al carrito: '+ cantidad + ' Kg de '+producto+'.')){
+
+        $.ajax({
+            
+            headers: { "APP-KEY": AppKey() },
+            method:'post',
+            url: Url()+"api/AddToCart",
+            data:{id_producto:id_producto,cantidad:cantidad,producto:producto,token:token},
+            context: document.body
+        }).done(function(data) {
+           if(data){
+            $('.cont-carrito').show();
+            $('.can-carrito').html(data);
+            alert('Producto agregado a su carrito.');
+           }
+           
+        }).fail( function() {
+
+            alert( 'Error de servidor!!' );
+        
+        });
+    }
+
+
+   
 }
 
 function FuncionVentana(){
@@ -79,13 +124,6 @@ function EscalaVerdes(){
 function EscalaRojos(){
     return ['#FF9056','#FE783F','#F5692B','#DB5E2A','#C75422','#B04D1E','#9F4118','#8F3C16','#813717','#FEC652','#FFB330','#F99F1E'];
 }
-function Url(){
-    if(window.location.origin.includes('localhost') || window.location.origin.includes('192.168')){
-        return window.location.origin+'/recitrack/public/';
-    }else{
-       return window.location.origin+'/';
-    }
-}
 
 
 function AppKey(){
@@ -119,6 +157,25 @@ function ValidarPassRegistro(){
         $('#pass2').removeClass('is-valid');
     }
     
+}
+
+function SolicitarCodigo(token){
+
+    $.ajax({
+            
+        headers: { "APP-KEY": AppKey() },
+        method:'post',
+        url: Url()+"api/SolicitarCodigo",
+        data:{token:token},
+        context: document.body
+    }).done(function(data) {
+      console.log(data);
+       
+    }).fail( function() {
+
+        alert( 'Error de servidor!!' );
+    
+    });
 }
 
 

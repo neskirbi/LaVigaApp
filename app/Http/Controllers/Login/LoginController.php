@@ -99,6 +99,11 @@ class LoginController extends Controller
     function LoginCliente(Request $request){
         $tienda=Tienda::where('telefono',$request->telefono)->first();
         if($tienda){
+            Tienda::where('telefono',$request->telefono)
+            ->update([
+                'token' => password_hash(GetUuid(),PASSWORD_DEFAULT)
+            ]);
+
             Auth::guard('tiendas')->login($tienda);
             
             return redirect('productos')->with('success','Bienvenido.');
