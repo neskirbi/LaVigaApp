@@ -52,9 +52,9 @@ function GetToken(){
 function GetTitle(){
     return 'LaVigaApp';
 }
-function NoEspacios(){
-    //Si dejas espacios abajo o pones html fuera de las funciones, puedes causar errores
-}
+
+
+
 
 
 function GetCarritoCount(){
@@ -78,5 +78,58 @@ function GuardarArchivos($file,$ruta,$nombre){
         return false;
     }
 
+}
+
+function EnviarWhatsApp($telefono){
+        
+    //TOKEN QUE NOS DA FACEBOOK
+    $token = 'EAALPCiZBjQg4BADRr5wqbTPHZAJiZAzSKLPmsPic64bEAcqj0hx6cQ7X0WSBg24It3yj6BVLhZAuE5dbtnKhcGx5T1h3iu2Ctqu6qAHRU51oXXdZCVeVXa2RmBwrnM6QyXcbThaVAzvqjfq1m6ShC082rZCbuAkqAhTHF2VVfQD2bJoctcmdpvihknTg4ZCSmqI58nMM5wsyQZDZD';
+    //NUESTRO TELEFONO
+    //$telefono = '5533772392';
+    //URL A DONDE SE MANDARA EL MENSAJE
+    $url = 'https://graph.facebook.com/v17.0/110807355409486/messages';
+    //CONFIGURACION DEL MENSAJE
+    $mensaje = ''
+            . '{'
+            . '"messaging_product": "whatsapp", '
+            . '"to": "'.$telefono.'", '
+            . '"type": "template", '
+            . '"template": '
+            . '{'
+            . '     "name": "hello_world",'
+            . '     "language":{ "code": "en_US" } '
+            . '} '
+            . '}';
+    //DECLARAMOS LAS CABECERAS
+    $header = array("Authorization: Bearer " . $token, "Content-Type: application/json",);
+    //INICIAMOS EL CURL
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, $url);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $mensaje);
+    curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    //OBTENEMOS LA RESPUESTA DEL ENVIO DE INFORMACION
+    $response = json_decode(curl_exec($curl), true);
+    //IMPRIMIMOS LA RESPUESTA 
+    //print_r($response);
+    //OBTENEMOS EL CODIGO DE LA RESPUESTA
+    $status_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+    //CERRAMOS EL CURL
+    curl_close($curl);
+
+    return $response;
+}
+
+
+
+
+
+
+
+
+
+
+function NoEspacios(){
+    //Si dejas espacios abajo o pones html fuera de las funciones, puedes causar errores
 }
 ?>

@@ -37,7 +37,9 @@ class Apicontroller extends Controller
 
         $codigo->codigo = $number;
 
-        $codigo->save();
+        if($codigo->save()){
+            return EnviarWhatsApp('+525533772392');
+        }
         return $number;
 
     } 

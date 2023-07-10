@@ -55,12 +55,18 @@ Route::get('logout', 'App\Http\Controllers\Login\LoginController@Logout');
 
 /**
  * 
- * Rutas clientes
+ * Rutas Tiendas
  */
 
 
  Route::get('productos', 'App\Http\Controllers\Tienda\ProductoController@Productos');
-
  
 
  Route::resource('carrito', 'App\Http\Controllers\Tienda\CarritoController');
+
+ 
+ Route::post('ValidarCodigo', 'App\Http\Controllers\Tienda\CarritoController@ValidarCodigo');
+
+ 
+
+ 

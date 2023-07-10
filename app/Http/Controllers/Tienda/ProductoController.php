@@ -11,6 +11,11 @@ use App\Models\Producto;
 
 class ProductoController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('tiendaislogged');
+    }
+    
     function Productos(Request $request){
 
         $productos=Producto::select('id',
